@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/22 09:30:20 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/26 13:47:17 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/26 16:24:12 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,7 +58,6 @@ void				dot_map(t_map *m);
 void				print_map(t_map *m);
 void				place_tetris(t_all t, t_map *m, int line, int col, int a);
 int					checkplace(t_all t, t_map *m, int line, int col, int a);
-int					check_place2(t_map *m, int line, int col);
 int					solve(t_all t, t_map *m, int pos, int a);
 void				display(t_map *m);
 t_all				fill_xy(int a);

@@ -5,7 +5,7 @@ void	init_map(t_all tet, t_map *m)
 	int		i;
 
 	i = 0;
-	m->size = ft_sqrt(tet.nb * 10);
+	m->size = ft_sqrt(tet.nb * 4);
 	m->map = (char **)malloc(sizeof(char *) * m->size + 1);
 	while (i < m->size)
 	{

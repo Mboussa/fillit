@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/27 18:06:22 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/26 13:47:41 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/27 13:35:00 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,24 +74,22 @@ int		solve(t_all t, t_map *m, int pos, int a)
 {
 	int x;
 	int y;
-	
+	if (a == t.nb)
+		return (1);
 	while (pos < m->size * m->size)
 	{
 		x = pos / m->size;
 		y = pos % m->size;
 		if (checkplace(t, m, x, y, a))
 		{
-			if (check_place2(m, x, y))
-				place_tetris(t, m, x, y, a);
-			printf("---%d---\n", pos);
-			printf("%d -- %d\n", x, y);
-			display(m);
-			ft_putendl(" ");
+			place_tetris(t, m, x, y, a);
 			if (a < t.nb)
 				a++;
 		}
 		pos++;
 	}
+	if (a == t.nb)
+		return (1);
 	return (0);
 }
 
@@ -117,12 +115,6 @@ int				main(int ac, char **av)
 	while (x < t.nb)
 	{
 		t = fill_xy(x);
-		x++;
-	}
-	x = 0;
-	while (x < t.nb)
-	{
-		display3(t, x);
 		x++;
 	}
 	init_map(t, &m);

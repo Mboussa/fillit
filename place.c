@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/29 16:09:56 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/26 14:11:22 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/27 13:08:05 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,6 +87,9 @@ int		checkplace(t_all t, t_map *m, int line, int col, int a)
 
 	x = get_line_pos(t,a);
 	i = line;
+	j = col;
+	if (i + t.t[a].y > m->size || j + t.t[a].x > m->size)
+		return (0);
 	while (i < m->size && x < MAX_X)
 	{
 		j = col;
@@ -119,7 +122,7 @@ void	place_tetris(t_all t, t_map *m, int line, int col, int a)
 		y = get_col_pos(t, a);
 		while (j < m->size && y < MAX_Y)
 		{
-			if (t.t[a].tetris[x][y] == '#')
+			if (t.t[a].tetris[x][y] == '#' && m->map[i][j] == '.')
 				m->map[i][j] = 'A' + a;
 			j++;
 			y++;
@@ -127,28 +130,4 @@ void	place_tetris(t_all t, t_map *m, int line, int col, int a)
 		i++;
 		x++;
 	}
-}
-
-int		check_place2(t_map *m, int line, int col)
-{
-	int i;
-	int j;
-	int c;
-
-	c = 0;
-	i = line;
-	while (i < m->size)
-	{
-		j = col;
-		while (j < m->size)
-		{
-			if (m->map[i][j] != '.')
-				c++;
-			j++;
-		}
-		i++;
-	}
-	if (c == 4 || c == 0)
-		return (1);
-	return (0);
 }
