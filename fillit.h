@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/22 09:30:20 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2018/12/26 16:24:12 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/10 18:06:10 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,32 +34,31 @@ typedef struct		s_tetriminos
 
 typedef struct		s_all
 {
-	int				nb;
 	t_tetriminos	t[MAX_TETRIS];
-}					t_all;
-
-typedef struct		s_map
-{
+	int				nb;
 	char			**map;
 	int				size;
 	int				x;
 	int				y;
-}					t_map;
+}					t_all;
 
 int					ft_sqrt(int nb);
 int					checkfile(char *str);
 int					countblock(char *str);
-int					checkblock(t_all tet, int x);
-t_all				fill_all(char *str);
+int					checkblock(t_all *t, int x, int b);
+int					square(t_all *t, int x, int b);
+void				*fill_all(t_all *t, char *str);
 char				*readfile(int fd, char *str);
 t_tetriminos		init_tetris(char *str, int *x);
-void				init_map(t_all tet, t_map *m);
-void				dot_map(t_map *m);
-void				print_map(t_map *m);
-void				place_tetris(t_all t, t_map *m, int line, int col, int a);
-int					checkplace(t_all t, t_map *m, int line, int col, int a);
-int					solve(t_all t, t_map *m, int pos, int a);
-void				display(t_map *m);
-t_all				fill_xy(int a);
+void				init_map(t_all *tet, int si);
+void				dot_map(t_all *m);
+void				print_map(t_all *m);
+void				place_tetris(t_all *t, int line, int col, int a);
+int					checkplace(t_all *t, int line, int col, int a);
+int					solve(t_all *t, int pos, int a);
+void				display(t_all *m);
+void				del_tetris(t_all *m, int a);
+void				free_map(t_all *m);
+void				*fill_xy(t_all *t, int a);
 
 #endif
