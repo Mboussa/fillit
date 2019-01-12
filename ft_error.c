@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/23 15:09:01 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 18:16:56 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/12 20:08:18 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,7 +66,7 @@ int		checkblock(t_all *t, int x, int b)
 
 	i = -1;
 	hash = 0;
-	while (i++ < MAX_X)
+	while (++i < MAX_X)
 	{
 		j = -1;
 		while (++j < MAX_Y)
@@ -95,7 +95,7 @@ int		square(t_all *t, int x, int b)
 
 	i = -1;
 	hash = 0;
-	while (i++ < MAX_X)
+	while (++i < MAX_X)
 	{
 		j = -1;
 		while (++j < MAX_Y)

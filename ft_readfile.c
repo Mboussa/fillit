@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/01 18:40:21 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/10 18:17:07 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/12 17:50:12 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -65,6 +65,7 @@ void			*fill_all(t_all *t, char *str)
 	char	*tmp;
 
 	i = countblock(str);
+	ft_memset(t, 0, sizeof(t));
 	t->nb = 0;
 	while (t->nb < i)
 	{

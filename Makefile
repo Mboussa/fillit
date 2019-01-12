@@ -6,13 +6,17 @@
 #    By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/02 12:55:54 by moboussa     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/26 15:51:04 by moboussa    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/01/12 18:37:01 by moboussa    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 NAME = fillit
 
-SRC = $(wildcard *.c)
+SRC = 	ft_main.c \
+		ft_error.c \
+		ft_map.c \
+		ft_place.c \
+		ft_readfile.c 
 
 FLAGS = -Wall -Wextra -Werror
 
