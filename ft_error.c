@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/23 15:09:01 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/12 20:08:18 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/17 16:24:15 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,13 +38,13 @@ int		checkfile(char *str)
 	i = 0;
 	nbline = 0;
 	nbcol = 0;
-	while (str[i])
+	while (str[i] && str[i] != ' ')
 	{
 		if (nbcol == 4)
 			nbcol = 0;
 		while (str[i] != '\n' && str[i++])
 			nbcol++;
-		if (str[i] == '\n' || str[i] != '\0')
+		if (str[i] == '\n')
 			nbline++;
 		if (str[i] == '\n' && str[i + 1] == '\n' && nbline == 4)
 		{
