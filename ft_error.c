@@ -6,7 +6,7 @@
 /*   By: moboussa <moboussa@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/23 15:09:01 by moboussa     #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/17 16:24:15 by moboussa    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 13:18:48 by moboussa    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,28 @@ int		countblock(char *str)
 	return (block + 1);
 }
 
+int		checkblock2(t_all *t, int x)
+{
+	int		i;
+	int		j;
+	int		npoint;
+
+	i = -1;
+	npoint = 0;
+	while (++i < MAX_X)
+	{
+		j = -1;
+		while (++j < MAX_Y)
+		{
+			if (t->t[x].tetris[i][j] == '.')
+				npoint++;
+		}
+	}
+	if (npoint == 12)
+		return (1);
+	return (0);
+}
+
 int		checkfile(char *str)
 {
 	int		i;
@@ -38,7 +60,7 @@ int		checkfile(char *str)
 	i = 0;
 	nbline = 0;
 	nbcol = 0;
-	while (str[i] && str[i] != ' ')
+	while (str[i])
 	{
 		if (nbcol == 4)
 			nbcol = 0;
@@ -82,7 +104,7 @@ int		checkblock(t_all *t, int x, int b)
 			}
 		}
 	}
-	if (hash == 7 && b == 4)
+	if (hash == 7 && b == 4 && checkblock2(t, x))
 		return (1);
 	return (0);
 }
@@ -111,7 +133,7 @@ int		square(t_all *t, int x, int b)
 			}
 		}
 	}
-	if (hash == 8 && b == 4)
+	if (hash == 8 && b == 4 && checkblock2(t, x))
 		return (1);
 	return (0);
 }
